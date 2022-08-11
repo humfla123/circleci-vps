@@ -1,1 +1,23 @@
+version: 2.1
+executors:
+  my-custom-executor:
+    docker:
+      - image: cimg/base:2022.08
+        auth:
+          # ensure you have first added these secrets
+          # visit app.circleci.com/settings/project/github/humfla123/circleci-vps/environment-variables
+          username: $humberto1129083
+          password: $humfla321
+jobs:
+  my-job-name:
 
+    executor: my-custom-executor
+    steps:
+      - checkout
+      - run: |
+          # sudo apt update
+
+workflows:
+  my-custom-workflow:
+    jobs:
+      - my-job-name
